@@ -149,9 +149,6 @@ function installTerragrunt {
     exit 1
   fi
   echo "Successfully moved Terragrunt ${tgVersion}"
-  echo "Validating tg version and location"
-  ls -la /usr/local/bin/
-  /usr/local/bin/terragrunt -version
 }
 
 function main {
