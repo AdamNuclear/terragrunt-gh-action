@@ -149,7 +149,7 @@ function installTerragrunt {
     exit 1
   fi
   echo "Successfully moved Terragrunt ${tgVersion}"
-  teraform version
+  terraform version
   terragrunt version
 }
 
