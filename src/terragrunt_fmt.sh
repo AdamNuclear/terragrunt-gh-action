@@ -9,7 +9,7 @@ function terragruntFmt {
 
   # Gather the output of `terragrunt fmt`.
   echo "fmt: info: checking if Terragrunt files in ${tfWorkingDir} are correctly formatted"
-  fmtOutput=$(${tfBinary} fmt -check=true -write=false -diff ${fmtRecursive} ${*} 2>&1)
+  fmtOutput=$(${tfBinary} run-all fmt -check=true -write=false -diff ${fmtRecursive} ${*} 2>&1)
   fmtExitCode=${?}
 
   # Exit code of 0 indicates success. Print the output and exit.
