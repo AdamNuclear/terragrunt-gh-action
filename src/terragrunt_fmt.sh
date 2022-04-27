@@ -38,7 +38,7 @@ function terragruntFmt {
   echo
 
   # Comment on the pull request if necessary.
-  if [ "${tfComment}" == "1" ]; then
+  if [ "$GITHUB_EVENT_NAME" == "pull_request" ] && [ "${tfComment}" == "1" ]; then
     fmtComment=""
     for file in ${fmtFileList}; do
       fmtFileDiff=$(${tfBinary} fmt -check=true -write=false -diff "${file}" | sed -n '/@@.*/,//{/@@.*/d;p}')

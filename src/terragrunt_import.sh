@@ -23,7 +23,7 @@ function terragruntImport {
   fi
 
   # Comment on the pull request if necessary.
-  if [ "${tfComment}" == "1" ] && [ "${importCommentStatus}" == "Failed" ]; then
+  if [ "$GITHUB_EVENT_NAME" == "pull_request" ] && [ "${tfComment}" == "1" ] && [ "${importCommentStatus}" == "Failed" ]; then
     importCommentWrapper="#### \`${tfBinary} import\` ${importCommentStatus}
 <details><summary>Show Output</summary>
 
